@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../index.ts"],
+  "sourcesContent": ["import polishResolver from './polishSolver';\nimport infixToPostfix from './infixToPostfix';\n\n// console.log(polishResolver('5 3 6 * + 5 3 / - 7 +'));\ntry {\n  console.log(polishResolver(infixToPostfix('5 + 3 * 6 - ( 5 / 3 ) + 7')));\n} catch (e) {\n  console.log();\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA,0BAA2B;AAC3B,4BAA2B;AAG3B,IAAI;AACF,UAAQ,IAAI,iCAAe,mCAAe;AAAA,SACnC,GAAP;AACA,UAAQ;AAAA;",
+  "names": []
+}

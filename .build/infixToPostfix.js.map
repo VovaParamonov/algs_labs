@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../infixToPostfix.ts"],
+  "sourcesContent": ["const operMap = {\n    '*': 2,\n    '/': 2,\n    '-': 1,\n    '+': 1 \n}\n\nexport default (expression: string): string => {\n\tlet pfixArr: string[] = [];\n\tconst infixStack: string[] = [];\n\t\n\t// Helper function to get the precedence of the operator\n\tconst precedence = (operator: string) => {\n\t\treturn (operMap as any)[operator] || 0;\n\t}\n  \n\tfor(let c of expression) {\n\t\tif(!isNaN(parseInt(c))) {\n\t\t\tpfixArr.push(c);\n\t\t} else if('*/+-'.includes(c)) {\n\t\t\twhile(\n        infixStack.length !== 0 && \n        (precedence(c) <= precedence(infixStack[infixStack.length - 1]))\n      ){\n\t\t\t\tpfixArr.push(infixStack.pop()!);\n\t\t\t}\n\t\t\tinfixStack.push(c);\n    }\n\t}\n\twhile(infixStack.length !== 0){\n\t\tpfixArr.push(infixStack.pop()!);\n\t}\n\n  return pfixArr.join(' ');\n}"],
+  "mappings": ";;;;;;;AAAA;AAAA;AAAA;AAAA,MAAM,UAAU;AAAA,EACZ,KAAK;AAAA,EACL,KAAK;AAAA,EACL,KAAK;AAAA,EACL,KAAK;AAAA;AAGT,IAAO,yBAAQ,CAAC,eAA+B;AAC9C,MAAI,UAAoB;AACxB,QAAM,aAAuB;AAG7B,QAAM,aAAa,CAAC,aAAqB;AACxC,WAAQ,QAAgB,aAAa;AAAA;AAGtC,WAAQ,KAAK,YAAY;AACxB,QAAG,CAAC,MAAM,SAAS,KAAK;AACvB,cAAQ,KAAK;AAAA,eACJ,OAAO,SAAS,IAAI;AAC7B,aACK,WAAW,WAAW,KACrB,WAAW,MAAM,WAAW,WAAW,WAAW,SAAS,KAC7D;AACH,gBAAQ,KAAK,WAAW;AAAA;AAEzB,iBAAW,KAAK;AAAA;AAAA;AAGlB,SAAM,WAAW,WAAW,GAAE;AAC7B,YAAQ,KAAK,WAAW;AAAA;AAGxB,SAAO,QAAQ,KAAK;AAAA;",
+  "names": []
+}
